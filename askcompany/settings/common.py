@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 from os.path import abspath, dirname
+import collections
+if not hasattr(collections, 'Callable'):
+    collections.Callable = collections.abc.Callable
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 # dirname: 부모 경로, settings 폴더로 들어왔으니 dirname으로 한 번 더 감싸줌
@@ -43,6 +46,7 @@ INSTALLED_APPS = [
     # Third Apps
     'bootstrap4',
     'debug_toolbar',
+    'django_pydenticon',
     # Local Apps
     'accounts',
 
