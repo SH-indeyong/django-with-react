@@ -79,7 +79,8 @@ def user_unfollow(request, username):
     follow_user = get_object_or_404(User, username=username, is_active=True)
 
     request.user.following_set.remove(follow_user)
-    follow_user.follower_set.remove(request.user)
+    follow_user.follower_set.remove
+    (request.user)
 
     messages.success(request, f"{follow_user}님을 팔로우 취소했습니다.")
     redirect_url = request.META.get('HTTP_REFERER', 'root')
