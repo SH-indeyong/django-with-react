@@ -94,7 +94,9 @@ def comment_new(request, post_pk):
             comment.post = post
             comment.author = request.user
             comment.save()
-            if request.is_ajax():
+            # django 3.0
+            # if request.is_ajax():
+            if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
                 return render(request, 'instagram/_comment.html', {
                     'comment': comment,
                 })
